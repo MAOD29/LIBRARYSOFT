@@ -1,0 +1,171 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background:  url(../img/1a.jpg);
+    background-size: 100%;  
+     font-weight: lighter;
+   
+}
+.uno img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 91px;
+    top: 65px;
+}
+.dos img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 466px;
+    top: 65px;
+}
+.tres img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 841px;
+    top: 65px;
+}
+
+.cuatro img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 842px;
+    top: 294px;
+}
+
+.cinco img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 468px;
+    top:  294px;
+}
+
+.seis img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 91px;
+    top: 294px;
+}
+
+.siete img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 476px;
+    top: 503px;
+}
+.logo img{
+    width: 200px;
+    position: absolute;
+    left: 70px;
+    top: 543px;
+
+}
+.boton:hover{
+    opacity: 0.7;
+}
+.boton7:hover{
+    opacity: 0.7;
+}
+
+.boton{
+   
+    width: 250px;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: right;
+   display: inline-block;
+   margin: 40px 60px;
+   margin-right: 30px;
+   border-radius: 30px;
+   border:1px inset rgb(0, 0, 0)
+   
+
+}
+.boton7{
+   right: 250px;
+    width: 250px;
+    background-color:#E0E3EA;
+    color: black;
+    font-size: 17px;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: right;
+   display: inline-block;
+   margin: 40px 435px;
+   margin-right: 80px;
+   border-radius: 30px;
+   border:3px inset rgb(0, 0, 0);
+
+}
+.imgs{
+    width: 100px;
+    position: absolute;
+    top: 200px;
+    left: 320px;  
+}
+.imgs1{
+    width: 100px;
+    position: absolute;
+    top: 194px;
+    left: 680px;  
+}
+.imgs2{
+    width: 100px;
+    position: absolute;
+    top: 194px;
+    left: 1040px;  
+}
+.imgs3{
+    width: 100px;
+    position: absolute;
+    top: 429px;
+    left: 322px;  
+}
+.imgs4{
+    width: 100px;
+    position: absolute;
+    top: 429px;
+    left: 682px;  
+}
+.imgs5{
+    width: 100px;
+    position: absolute;
+    top: 429px;
+    left: 1042px;  
+}
+.imgs6{
+    width: 100px;
+    position: absolute;
+    top: 646px;
+    left: 680px;  
+}
+
+.i{
+    border: 0;
+    width: 120px;
+    border-radius:10px;
+    
+}
+button{
+    border: 0;
+    background-color:rgba(224, 227, 234, 0);
+  
+}
+

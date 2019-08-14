@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background:  url("{{ public_path('imagenes/login.jpeg') }}");
+    background-size: 100%;   
+
+}
+.login-img img {
+    width: 250px;
+    
+}
+.login-img{
+    position: absolute;
+   left: 550px;
+   top: 65px;
+   
+}
+.usuario img{
+    width: 40px;
+}
+.usuario{
+    position: absolute;
+    left: 570px;
+    top: 260px;
+    
+}
+.candado img{
+    width: 40px;
+}
+.candado{
+    position: absolute;
+    left: 570px;
+    top: 370px;
+    
+}
+
+
+.login{
+    width: 255px;
+    height: 340px;
+    background: rgba(255, 255, 255, 0);
+   
+    margin-top: 200px;
+    margin-right: 300px;
+    margin-left: 560px;
+    margin-bottom: 40px;
+
+
+   border-radius: 40px;
+   border:5px solid rgb(13, 56, 197)
+}
+.form-group1{
+    padding: 60px 20px; 
+    width: 220px; 
+    margin-left: 30px;
+   
+}
+
+.form-group2{
+    padding: 20px; 
+    width: 230px;
+    margin-left: 30px;
+   
+}
+
+
+#inputPassword3{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.459);
+    border:3px solid rgb(13, 56, 197)
+    
+}
+
+#inputEmail3{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.459);
+    border:3px solid rgb(13, 56, 197)
+    
+}
+label, input {
+  font-family: Arial;
+ height: 25px;
+}
+
+
+.login input::placeholder {
+    color: rgba(0, 0, 0, 0.842);
+    font-size: 20px;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+button {
+    background-color: rgb(13, 56, 197);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-left: 70px;
+    margin-top: 40px;
+    
+}
