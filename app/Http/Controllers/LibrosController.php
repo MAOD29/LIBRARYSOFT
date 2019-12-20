@@ -33,7 +33,7 @@ class LibrosController extends Controller
         Cache::flush();
         $key = 'message.page' . request('page', 1);
 		$libros = Cache::rememberForever($key, function() use($request) {
-			return Libro::where('titulo','like','%'.$request->search.'%')
+			return Libro::with(['materias'])->where('titulo','like','%'.$request->search.'%')
 		                    ->orWhere('id', $request->search)
 		                    ->orderBy('created_at', request('sorted','ASC'))
 		                    ->paginate(10);
@@ -48,7 +48,7 @@ class LibrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    { 
         //
         $materias = Materia::pluck('nombre','id');
         return view('libros.create',compact('materias'));

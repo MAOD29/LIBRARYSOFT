@@ -36,9 +36,6 @@ Route::get('/pdf-prestamo', ['as' => 'pdfprestamos', 'uses' => 'ReportesControll
 Route::post('/importar-alumno', ['as' => 'ialumno', 'uses' => 'ReportesController@importaralumnos']);
 Route::post('/importar-libro', ['as' => 'ilibros', 'uses' => 'ReportesController@importarlibros']);
 
-
-
-
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login','Auth\LoginController@login');
 Route::get('logout','Auth\LoginController@logout');

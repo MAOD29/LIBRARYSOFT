@@ -79,12 +79,7 @@ class PrestamosController extends Controller
      */
     public function store(Request $request)
     {
-       // $request->fecha_prestamo = Carbon::parse($request->fecha_prestamo)->format('d-m-Y');
-    /*manejo de fechas
-        $p = new Prestamo;
-        $p->fecha_prestamo = $request->fecha_prestamo;
-        $p->fecha_entrega  = $request->fecha_entrega;
-        $date2 = $p->fecha_entrega->format('d-m-Y');*/
+      
         $today = new Carbon();
         $despues = $today->addDay(2);
         

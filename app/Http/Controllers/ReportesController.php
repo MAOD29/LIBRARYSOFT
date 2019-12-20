@@ -42,7 +42,6 @@ class ReportesController extends Controller
         $date_inicial = new Carbon($request->fecha_inicial." 00:00:00");
         $date_final = new Carbon($request->fecha_final." 23:59:59");
 
-
         if($request->opcion == 'prestamos'){
             $results = Prestamo::all()->where('fecha_prestamo','>=',$date_inicial)
                                       ->where('fecha_entrega','<=',$date_final)
@@ -55,12 +54,8 @@ class ReportesController extends Controller
                                       ->where('estado','si');
             $estado = '2';
         }elseif($request->opcion == 'multas'){
-          
-
             $results = Prestamo::all()->where('estado','si');
-            
-              $estado = '3';
-
+            $estado = '3';
          }
 
         return view('reportes.index',compact('results','estado','date_inicial','date_final'));
@@ -73,10 +68,7 @@ class ReportesController extends Controller
      */
     public function create()
     {
-      
         $materias = Materia::withCount('libros')->get();
-     
-     
         return view('reportes.create',compact('materias'));
     }
 
@@ -214,13 +206,10 @@ class ReportesController extends Controller
     }
 
     public function materias(){
-      //total de libros
-      //$l =  new Libro;
-      //$libros= Libro::with(['materias'])->get();
+     
 
       
         \Excel::create('Materias', function($excel) {
-            //$libros = Libro::all();
             $libros= Libro::with(['materias'])->get()->count();
             $materias = Materia::withCount('libros')->get();
             $inde = 3;
@@ -335,24 +324,15 @@ class ReportesController extends Controller
                         'bold'       =>  true
                     ));
                 });
-
-
-
                 $sheet->row(1, ['ALUMNOS EN EL SISTEMA'])->setBorder('A1:F1', 'double');
-
                 $sheet->row(2, ['MATRICULA', 'NOMBRE', 'APELLIDOS', 'TURNO', 'GRADO','GRUPO'])->setBorder('A1:F1', 'double');
-
-               
-                
                 //recorrer el array para insertar datos
                     foreach($alumnos as $index => $alumno) {
                         $sheet->row($index+3, [
                             $alumno->matricula, $alumno->name, $alumno->apellidos, $alumno->turno, $alumno->grado,$alumno->grupo
                         ]); 
                     }
-               
             });
-           
 
         })->export('xls');
     }
@@ -361,19 +341,16 @@ class ReportesController extends Controller
  
 
     public function importarlibros(Request $request){
-
    
         \Excel::load($request->excel, function($reader) {
 
              //
-     
              foreach ($reader->get() as $book) {
                 $libros = Libro::where('titulo',$book->titulo)->first();
                 $materia = Materia::where('nombre',$book->materia)->first();
                 if (count($libros) == 0) {
                     if (empty( $book->titulo)) {
-                         //return view('reportes.index');
-                 
+                         //return view('reportes.index');   
                     }else{
                           $libro = Libro::create([
                          'titulo' => $book->titulo,
@@ -383,30 +360,21 @@ class ReportesController extends Controller
                          ]);
                           $libro->materias()->attach($materia);
                     }
-                }
-                //
-                     
+                } 
                 }  
-
             });
-        //return Alumno::all();
         return redirect()->route('reportes.index')->with('info','Libros actualizado');
     }
 
     public function importaralumnos(Request $request){
 
-   
         \Excel::load($request->excel, function($reader) {
-
-             //
-     
              foreach ($reader->get() as $book) {
                 $alumnos = Alumno::where('matricula',$book->matricula)->first();
 
                 if (count($alumnos) == 0) {
                     if (empty( $book->matricula)) {
-                         return view('reportes.index');
-                 
+                         return view('reportes.index');    
                     }else{
                           Alumno::create([
                          'matricula' => $book->matricula,
@@ -417,13 +385,10 @@ class ReportesController extends Controller
                          'grupo' =>$book->grupo,
                          ]);
                     }
-                }
-
-                     
+                }     
                 }  
 
             });
-        //return Alumno::all();
          return redirect()->route('reportes.index')->with('info','alumnos actualizado');
     }
 
@@ -435,10 +400,8 @@ class ReportesController extends Controller
         if($request->estado == '1'){
 
             \Excel::create('prestamos', function($excel) use($date_inicial,$date_final) {
-
              $results = Prestamo::all()->where('fecha_prestamo','>=',$date_inicial)
                                       ->where('fecha_entrega','<=',$date_final);
-
             $excel->sheet('prestamos', function($sheet) use($results,$date_inicial,$date_final) {
                $sheet->setWidth('A', 10);
                 $sheet->setWidth('B', 15);
@@ -591,11 +554,8 @@ class ReportesController extends Controller
                 
         }elseif($request->estado == '3'){
 
-             $results = Prestamo::all()->where('estado','si');
-            
+             $results = Prestamo::all()->where('estado','si');   
               $estado = '3';
-
-
             $pdf = \PDF::loadView('reportes.pdf', compact('results','estado'));
             return $pdf->download('multas.pdf');
         }
